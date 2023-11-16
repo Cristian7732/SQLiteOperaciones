@@ -32,7 +32,7 @@ public class DbAdapter {
             int cid = cursor.getInt(cursor.getColumnIndex(dBHelper.UID));
             String name = cursor.getString(cursor.getColumnIndex(dBHelper.NAME));
             String password = cursor.getString(cursor.getColumnIndex(dBHelper.MyPASSWORD));
-            buffer.append(cid+" "+name+" "+password + "\n");
+            buffer.append(cid+" "+name+" "+password + "\n" );
         }
         return buffer.toString();
     }

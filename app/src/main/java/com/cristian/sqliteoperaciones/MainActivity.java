@@ -1,7 +1,9 @@
 package com.cristian.sqliteoperaciones;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,24 @@ public class MainActivity extends AppCompatActivity{
         password = (EditText) findViewById(R.id.usuarioPassword);
 
         helper = new DbAdapter(this);
+
+        Button btnActualizarUsuario = (Button) findViewById(R.id.btnActualizar);
+        btnActualizarUsuario.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActualizarActivity();
+            }
+        });
+
+        Button btnEliminarUsuario = (Button) findViewById(R.id.btnEliminar);
+        btnEliminarUsuario.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startEliminarActivity();
+            }
+        });
+
+
     }
 
     public void agregarUsuario(View view){
@@ -44,6 +64,18 @@ public class MainActivity extends AppCompatActivity{
     public void veDatos(View view){
         String datos = helper.getData();
         Mensaje.aviso(this, datos);
+    }
+
+    private void startActualizarActivity(){
+        Intent intent = new Intent(this, UsuarioActualizarActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void startEliminarActivity(){
+        Intent intent = new Intent(this, UsuarioEliminarActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

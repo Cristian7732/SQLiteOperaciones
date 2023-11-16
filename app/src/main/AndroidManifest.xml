@@ -24,6 +24,14 @@
 
         </activity>
 
+        <activity android:name=".UsuarioActualizarActivity"
+            android:label="Actualizar Usuario">
+        </activity>
+
+        <activity android:name=".UsuarioEliminarActivity"
+            android:label="Eliminar Usuario">
+        </activity>
+
 
     </application>
 
